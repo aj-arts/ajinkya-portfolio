@@ -301,6 +301,19 @@ img {
   box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
 }
 
+.resume-btn {
+  background: var(--gradient);
+  border-color: transparent;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.resume-btn:hover {
+  background: linear-gradient(135deg, var(--accent-light) 0%, #4de4ff 100%);
+  color: #ffffff;
+  border-color: transparent;
+}
+
 /* ============================================================
    SECTIONS
    ============================================================ */
