@@ -349,8 +349,34 @@ img {
 }
 
 @media (max-width: 768px) {
-  .hidden-mobile {
-    display: none !important;
+  .devpost-callout {
+    right: 0px;
+    top: 90%;
+  }
+  .scribble-arrow {
+    width: 40px;
+    height: 40px;
+    margin-left: -35px;
+  }
+  .callout-text {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .devpost-callout {
+    right: 10px;
+    top: 80%;
+  }
+  .scribble-arrow {
+    width: 30px;
+    height: 30px;
+    margin-left: -20px;
+    margin-top: 10px;
+  }
+  .callout-text {
+    font-size: 0.65rem;
+    max-width: 100px;
   }
 }
 
