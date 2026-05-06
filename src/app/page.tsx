@@ -112,7 +112,7 @@ function Hero() {
               Software engineer and AI / multi-agent systems builder. CS and
               MS-AI honors student at Oregon State, leading agent systems on
               the OSU Genesis Team and researching physics-informed neural
-              networks at HP. Five-time hackathon winner, two-time research
+              networks at HP. Six-time hackathon winner, two-time research
               symposium presenter, one-time operating-system author.
             </p>
           </Enter>
@@ -233,7 +233,7 @@ function Selected() {
         <SectionHeader
           label="Selected"
           index="02"
-          meta={`${projects.length} shipped · 5 winners`}
+          meta={`${projects.length} shipped · ${projects.filter((p) => p.winner).length} winners`}
         />
 
         <a
@@ -281,7 +281,7 @@ function Selected() {
                 aria-hidden
                 className="mt-8 inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-wider text-ink-soft transition-colors group-hover:text-vermillion"
               >
-                Read on Devpost <span>↗</span>
+                Read the writeup <span>↗</span>
               </span>
             </div>
           </div>
@@ -439,7 +439,7 @@ function About() {
             <dl className="mt-5 space-y-3 font-sans text-base text-ink-soft">
               <div className="flex items-baseline justify-between gap-3 border-b border-rule pb-2">
                 <dt>Hackathons won</dt>
-                <dd className="font-mono text-ink">5</dd>
+                <dd className="font-mono text-ink">6</dd>
               </div>
               <div className="flex items-baseline justify-between gap-3 border-b border-rule pb-2">
                 <dt>Dean's List terms</dt>

@@ -100,6 +100,17 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
+    name: "OpenHealth",
+    href: "https://judge.beaverhacks.org/cmlfqho300000kv04wi9199a5/projects/cmoq6w17b014pjv042krgzaxf",
+    image: "/images/openhealth.jpg",
+    alt: "OpenHealth medical bill analysis platform",
+    description:
+      "Medical-bill transparency platform that turns opaque hospital charges into itemised breakdowns. Built the agent harness, runtime deployment, and a multi-modal vision-to-JSON pipeline that reasons over scanned bills with Nemotron. Won the NVIDIA track at BeaverHacks Spring 2026.",
+    tags: ["Nemotron", "Convex", "Vercel AI SDK", "Agentic AI"],
+    year: "2026",
+    winner: true,
+  },
+  {
     name: "CatchARide",
     href: "https://devpost.com/software/catcharide",
     image:
