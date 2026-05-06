@@ -4,9 +4,16 @@ import { useEffect, useState } from "react";
 
 import { navItems } from "@/data/portfolio";
 
+// Match Tailwind's default `md` breakpoint so JS gating tracks the same
+// boundary as `md:hidden` / `md:flex`.
+const DESKTOP_QUERY = "(min-width: 768px)";
+
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  // Default to `false` so SSR markup matches the initial client render
+  // (mobile-first); the effect below corrects the value after hydration.
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -15,8 +22,31 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Track viewport via matchMedia so the mobile-only chrome can be gated in
+  // JS as well as CSS. This is a belt-and-suspenders guard: a custom
+  // `.link-grow { display: inline-block }` rule in globals.css can override
+  // `md:hidden` due to source order, so we cannot rely on the utility alone.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mql = window.matchMedia(DESKTOP_QUERY);
+    const sync = () => setIsDesktop(mql.matches);
+    sync();
+    mql.addEventListener("change", sync);
+    return () => mql.removeEventListener("change", sync);
+  }, []);
+
+  // If the viewport crosses into desktop while the drawer is open (e.g. the
+  // user rotates a tablet or resizes the window), close it so the
+  // body-scroll lock is released and the user isn't trapped.
+  useEffect(() => {
+    if (isDesktop && open) setOpen(false);
+  }, [isDesktop, open]);
+
   useEffect(() => {
     if (!open) return;
+    // Hard guard: never lock body scroll on desktop, even if `open` is
+    // somehow forced true (stale state, rogue click, devtools).
+    if (isDesktop) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };
@@ -26,7 +56,7 @@ export function Nav() {
       document.body.style.overflow = "";
       document.removeEventListener("keydown", onKey);
     };
-  }, [open]);
+  }, [open, isDesktop]);
 
   return (
     <>
@@ -61,19 +91,21 @@ export function Nav() {
             ))}
           </nav>
 
-          <button
-            type="button"
-            className="md:hidden font-mono text-[12px] tracking-wide text-ink-soft link-grow"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? "close" : "menu"}
-          </button>
+          {!isDesktop ? (
+            <button
+              type="button"
+              className="md:hidden font-mono text-[12px] tracking-wide text-ink-soft link-grow"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+            >
+              {open ? "close" : "menu"}
+            </button>
+          ) : null}
         </div>
       </header>
 
-      {open ? (
+      {open && !isDesktop ? (
         <div
           className="fixed inset-0 z-50 bg-paper md:hidden"
           role="dialog"

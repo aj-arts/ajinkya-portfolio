@@ -353,26 +353,32 @@ function Stack() {
         <SectionHeader label="Stack" index="03" meta="tools that ship" />
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-12">
           {skillGroups.map((group) => (
-            <div key={group.title} className="md:col-span-6">
+            <div key={group.title} className="min-w-0 md:col-span-6">
               <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-faint">
                 {group.title}
               </h3>
-              <p className="mt-5 font-sans text-2xl font-light leading-[1.45] tracking-tight text-ink md:text-3xl">
-                {group.skills.map((skill, i) => (
-                  <span key={skill}>
-                    <span>{skill}</span>
-                    {i < group.skills.length - 1 ? (
-                      <span aria-hidden className="mx-2 text-ink-faint">
-                        ·
-                      </span>
-                    ) : (
-                      <span aria-hidden className="text-vermillion">
-                        .
-                      </span>
-                    )}
-                  </span>
-                ))}
-              </p>
+              <ul className="mt-5 flex flex-wrap items-baseline font-sans text-2xl font-light leading-[1.45] tracking-tight text-ink md:text-3xl">
+                {group.skills.map((skill, i) => {
+                  const isLast = i === group.skills.length - 1;
+                  return (
+                    <li
+                      key={skill}
+                      className="inline-flex items-baseline"
+                    >
+                      <span>{skill}</span>
+                      {isLast ? (
+                        <span aria-hidden className="text-vermillion">
+                          .
+                        </span>
+                      ) : (
+                        <span aria-hidden className="mx-2 text-ink-faint">
+                          ·
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           ))}
         </div>

@@ -1,0 +1,362 @@
+- main [ref=e2]:
+  - generic [ref=e4]:
+    - link "Ajinkya Gokule, back to top" [ref=e5] [cursor=pointer]:
+      - /url: "#top"
+      - generic [ref=e6]: ajinkya gokule
+      - generic [ref=e7]: / 2026
+    - navigation "Primary" [ref=e8]:
+      - link "work" [ref=e9] [cursor=pointer]:
+        - /url: "#work"
+      - link "selected" [ref=e10] [cursor=pointer]:
+        - /url: "#selected"
+      - link "stack" [ref=e11] [cursor=pointer]:
+        - /url: "#stack"
+      - link "about" [ref=e12] [cursor=pointer]:
+        - /url: "#about"
+    - button "Open menu" [ref=e13]: menu
+  - generic [ref=e15]:
+    - generic [ref=e17]:
+      - generic [ref=e20]: Available · Summer 2026
+      - generic [ref=e21]: ↗ Microsoft Security / PM Intern, incoming
+    - heading "Ajinkya Gokule." [level=1] [ref=e23]:
+      - generic [ref=e24]: Ajinkya
+      - generic [ref=e25]: Gokule.
+    - generic [ref=e26]:
+      - paragraph [ref=e28]: Software engineer and AI / multi-agent systems builder. CS and MS-AI honors student at Oregon State, leading agent systems on the OSU Genesis Team and researching physics-informed neural networks at HP. Six-time hackathon winner, two-time research symposium presenter, one-time operating-system author.
+      - generic [ref=e29]:
+        - paragraph [ref=e30]: Currently
+        - list [ref=e31]:
+          - listitem [ref=e32]: Multi-agent systems on the OSU Genesis Team — production agents on AWS AgentCore.
+          - listitem [ref=e33]: Hackathons — most recently OpenHealth, an agentic medical-bill transparency platform; NVIDIA track winner.
+          - listitem [ref=e34]: Incoming PM at Microsoft Security — summer 2026 on product strategy.
+    - list [ref=e36]:
+      - listitem [ref=e37]:
+        - link "Resume" [ref=e38] [cursor=pointer]:
+          - /url: https://github.com/aj-arts/ajinkya-resume/releases/download/latest-master/ajinkya-gokule-master-resume.pdf
+          - text: Resume↗
+      - listitem [ref=e39]:
+        - generic [ref=e40]: ·
+        - link "Email" [ref=e41] [cursor=pointer]:
+          - /url: mailto:ajinkyagokule@gmail.com
+          - text: Email↗
+      - listitem [ref=e42]:
+        - generic [ref=e43]: ·
+        - link "GitHub" [ref=e44] [cursor=pointer]:
+          - /url: https://github.com/aj-arts
+          - text: GitHub↗
+      - listitem [ref=e45]:
+        - generic [ref=e46]: ·
+        - link "LinkedIn" [ref=e47] [cursor=pointer]:
+          - /url: https://linkedin.com/in/ajinkyagokule
+          - text: LinkedIn↗
+      - listitem [ref=e48]:
+        - generic [ref=e49]: ·
+        - link "Devpost" [ref=e50] [cursor=pointer]:
+          - /url: https://devpost.com/ajinkyagokule
+          - text: Devpost↗
+  - generic [ref=e52]:
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - generic [ref=e56]: §01
+        - heading "Work" [level=2] [ref=e57]
+      - generic [ref=e58]: 2022 → Now
+    - list [ref=e59]:
+      - listitem [ref=e60]:
+        - generic [ref=e61]:
+          - paragraph [ref=e62]: Jun – Sep 2026
+          - paragraph [ref=e63]: Redmond, WA
+        - generic [ref=e64]:
+          - heading "Product Management Intern" [level=3] [ref=e65]
+          - paragraph [ref=e66]: Microsoft, Security Organization
+          - paragraph [ref=e67]: Incoming. Driving security product strategy and roadmap with cross-functional engineering, design, and threat-research partners.
+        - generic [ref=e68]: 01 / 06
+      - listitem [ref=e69]:
+        - generic [ref=e70]:
+          - paragraph [ref=e71]: May 2025 — Present
+          - paragraph [ref=e72]: Corvallis, OR
+        - generic [ref=e73]:
+          - heading "Multi-Agent Systems Developer" [level=3] [ref=e74]
+          - paragraph [ref=e75]: Genesis Team, Oregon State University
+          - paragraph [ref=e76]: Owning the roadmap for an IP Patent Identifier agentic app. Leading an eight-person team across AWS, Azure, and Vertex; deploying production AI agents via the Strands SDK on AWS AgentCore with MCP orchestration.
+        - generic [ref=e77]: 02 / 06
+      - listitem [ref=e78]:
+        - generic [ref=e79]:
+          - paragraph [ref=e80]: Feb — Sep 2025
+          - paragraph [ref=e81]: Corvallis, OR
+        - generic [ref=e82]:
+          - heading "Software & Research Intern" [level=3] [ref=e83]
+          - paragraph [ref=e84]: HP, Engineering Modelling & Analysis Group
+          - paragraph [ref=e85]: Lead developer on Physics-Informed Neural Networks modelling fluid flow and heat transfer inside microchips. Approximating 3D Navier–Stokes equations for next-generation semiconductor cooling.
+        - generic [ref=e86]: 03 / 06
+      - listitem [ref=e87]:
+        - generic [ref=e88]:
+          - paragraph [ref=e89]: Apr — Jun 2024
+          - paragraph [ref=e90]: Corvallis, OR
+        - generic [ref=e91]:
+          - heading "AI Backend Engineer Intern" [level=3] [ref=e92]
+          - paragraph [ref=e93]: College of Business, Oregon State University
+          - paragraph [ref=e94]: Built an interactive RAG chatbot on LlamaIndex for 500+ OSU business freshmen. Shipped on AWS with a professor-facing backend for document uploads and live retrieval.
+        - generic [ref=e95]: 04 / 06
+      - listitem [ref=e96]:
+        - generic [ref=e97]:
+          - paragraph [ref=e98]: Dec 2023 — Sep 2025
+          - paragraph [ref=e99]: Corvallis, OR
+        - generic [ref=e100]:
+          - heading "AI Security Research Assistant" [level=3] [ref=e101]
+          - paragraph [ref=e102]: Secure AI Systems Lab (SAIL), OSU
+          - paragraph [ref=e103]: Researching adversarial robustness of Implicit Neural Representations and NFT-based image classifiers under PGD attacks across MNIST, CIFAR-10, and CIFAR-100.
+        - generic [ref=e104]: 05 / 06
+      - listitem [ref=e105]:
+        - generic [ref=e106]:
+          - paragraph [ref=e107]: Nov 2022 — Jun 2023
+          - paragraph [ref=e108]: Corvallis, OR
+        - generic [ref=e109]:
+          - heading "Research Assistant" [level=3] [ref=e110]
+          - paragraph [ref=e111]: SoundBendor Lab, OSU
+          - paragraph [ref=e112]: Wrote 100+ unit tests for the MusicAI NoteValue class and presented at the URSA Spring Symposium.
+        - generic [ref=e113]: 06 / 06
+  - generic [ref=e115]:
+    - generic [ref=e117]:
+      - generic [ref=e118]:
+        - generic [ref=e119]: §02
+        - heading "Selected" [level=2] [ref=e120]
+      - generic [ref=e121]: 9 shipped · 6 winners
+    - link "OpenHealth medical bill analysis platform Winner Featured · 2026 OpenHealth. Medical-bill transparency platform that turns opaque hospital charges into itemised breakdowns. Built the agent harness, runtime deployment, and a multi-modal vision-to-JSON pipeline that reasons over scanned bills with Nemotron. Won the NVIDIA track at BeaverHacks Spring 2026. Nemotron / Convex / Vercel AI SDK / Agentic AI" [ref=e122] [cursor=pointer]:
+      - /url: https://judge.beaverhacks.org/cmlfqho300000kv04wi9199a5/projects/cmoq6w17b014pjv042krgzaxf
+      - generic [ref=e123]:
+        - generic [ref=e124]:
+          - img "OpenHealth medical bill analysis platform" [ref=e125]
+          - generic [ref=e126]: Winner
+        - generic [ref=e127]:
+          - paragraph [ref=e128]: Featured · 2026
+          - heading "OpenHealth." [level=3] [ref=e129]
+          - paragraph [ref=e130]: Medical-bill transparency platform that turns opaque hospital charges into itemised breakdowns. Built the agent harness, runtime deployment, and a multi-modal vision-to-JSON pipeline that reasons over scanned bills with Nemotron. Won the NVIDIA track at BeaverHacks Spring 2026.
+          - generic [ref=e131]:
+            - generic [ref=e132]: Nemotron
+            - generic [ref=e133]:
+              - generic [ref=e134]: /
+              - text: Convex
+            - generic [ref=e135]:
+              - generic [ref=e136]: /
+              - text: Vercel AI SDK
+            - generic [ref=e137]:
+              - generic [ref=e138]: /
+              - text: Agentic AI
+          - generic [ref=e139]:
+            - text: Read the writeup
+            - generic [ref=e140]: ↗
+    - list [ref=e141]:
+      - listitem [ref=e142]:
+        - link "CatchARide rideshare interface CatchARide 2025★ Student rideshare matching drivers and passengers with a custom route-optimisation algorithm on top of Google Routes. Won the Entrepreneurial track at BeaverHacks Spring 2025. Google Routes · OAuth 2.0 · PostgreSQL" [ref=e143] [cursor=pointer]:
+          - /url: https://devpost.com/software/catcharide
+          - img "CatchARide rideshare interface" [ref=e145]
+          - generic [ref=e146]:
+            - generic [ref=e147]:
+              - heading "CatchARide" [level=3] [ref=e148]
+              - generic [ref=e149]: 2025★
+            - paragraph [ref=e150]: Student rideshare matching drivers and passengers with a custom route-optimisation algorithm on top of Google Routes. Won the Entrepreneurial track at BeaverHacks Spring 2025.
+            - paragraph [ref=e151]: Google Routes · OAuth 2.0 · PostgreSQL
+          - generic [ref=e152]: 02 ↗
+      - listitem [ref=e153]:
+        - link "GetTheDamClass extension UI GetTheDamClass 2024★ Chrome extension with 37+ daily users that notifies OSU students of class openings via a reverse-engineered registration API. Won BeaverHacks Fall 2024. React · Docker · MySQL · Chrome API" [ref=e154] [cursor=pointer]:
+          - /url: https://devpost.com/software/getthedamclass
+          - img "GetTheDamClass extension UI" [ref=e156]
+          - generic [ref=e157]:
+            - generic [ref=e158]:
+              - heading "GetTheDamClass" [level=3] [ref=e159]
+              - generic [ref=e160]: 2024★
+            - paragraph [ref=e161]: Chrome extension with 37+ daily users that notifies OSU students of class openings via a reverse-engineered registration API. Won BeaverHacks Fall 2024.
+            - paragraph [ref=e162]: React · Docker · MySQL · Chrome API
+          - generic [ref=e163]: 03 ↗
+      - listitem [ref=e164]:
+        - link "Backcast antique radio interface Backcast 2024★ A 24/7 AI-generated retro radio show streamed through custom-modified antique radios and a Three.js web interface. Won Hack Through Time Spring 2024. Flask · Three.js · AWS EC2 · ESP32" [ref=e165] [cursor=pointer]:
+          - /url: https://devpost.com/software/timeless-w1ze62
+          - img "Backcast antique radio interface" [ref=e167]
+          - generic [ref=e168]:
+            - generic [ref=e169]:
+              - heading "Backcast" [level=3] [ref=e170]
+              - generic [ref=e171]: 2024★
+            - paragraph [ref=e172]: A 24/7 AI-generated retro radio show streamed through custom-modified antique radios and a Three.js web interface. Won Hack Through Time Spring 2024.
+            - paragraph [ref=e173]: Flask · Three.js · AWS EC2 · ESP32
+          - generic [ref=e174]: 04 ↗
+      - listitem [ref=e175]:
+        - link "Focii focus extension dashboard Focii 2023★ ML-powered Chrome extension that uses word embeddings to block distracting sites, with a 75% error reduction via Nelder–Mead optimisation. Won Hack Education Fall 2023. Transformers · PyTorch · Chrome API" [ref=e176] [cursor=pointer]:
+          - /url: https://devpost.com/software/focii
+          - img "Focii focus extension dashboard" [ref=e178]
+          - generic [ref=e179]:
+            - generic [ref=e180]:
+              - heading "Focii" [level=3] [ref=e181]
+              - generic [ref=e182]: 2023★
+            - paragraph [ref=e183]: ML-powered Chrome extension that uses word embeddings to block distracting sites, with a 75% error reduction via Nelder–Mead optimisation. Won Hack Education Fall 2023.
+            - paragraph [ref=e184]: Transformers · PyTorch · Chrome API
+          - generic [ref=e185]: 05 ↗
+      - listitem [ref=e186]:
+        - link "shortsGenerator command line shortsGenerator 2023★ CLI that generates AI short-form video end-to-end, collapsing days of editing into seconds. Won BeaverHacks Spring 2023. OpenAI · Python · Bash" [ref=e187] [cursor=pointer]:
+          - /url: https://devpost.com/software/shorts-generator
+          - img "shortsGenerator command line" [ref=e189]
+          - generic [ref=e190]:
+            - generic [ref=e191]:
+              - heading "shortsGenerator" [level=3] [ref=e192]
+              - generic [ref=e193]: 2023★
+            - paragraph [ref=e194]: CLI that generates AI short-form video end-to-end, collapsing days of editing into seconds. Won BeaverHacks Spring 2023.
+            - paragraph [ref=e195]: OpenAI · Python · Bash
+          - generic [ref=e196]: 06 ↗
+      - listitem [ref=e197]:
+        - link "Jedi-Vision visual aid prototype 3D Sound Visual Aid 2024 Visual aid for visually-impaired users using Vision Transformers, monocular depth estimation, and 3D spatial audio routed through bone-conduction headphones. Built in partnership with NVIDIA. Vision Transformers · Depth Estimation · Spatial Audio" [ref=e198] [cursor=pointer]:
+          - /url: https://github.com/Jedi-Vision/jedi-vision-nano-code
+          - img "Jedi-Vision visual aid prototype" [ref=e200]
+          - generic [ref=e201]:
+            - generic [ref=e202]:
+              - heading "3D Sound Visual Aid" [level=3] [ref=e203]
+              - generic [ref=e204]: "2024"
+            - paragraph [ref=e205]: Visual aid for visually-impaired users using Vision Transformers, monocular depth estimation, and 3D spatial audio routed through bone-conduction headphones. Built in partnership with NVIDIA.
+            - paragraph [ref=e206]: Vision Transformers · Depth Estimation · Spatial Audio
+          - generic [ref=e207]: 07 ↗
+      - listitem [ref=e208]:
+        - link "Campus Companion mobile app Campus Companion 2024 Full-stack mobile app on React Native and FastAPI with a real-time web-scraping microservice. Ran the Agile sprint cadence for an eight-person team. React Native · FastAPI · NoSQL" [ref=e209] [cursor=pointer]:
+          - /url: https://github.com/Carson274/CampusView
+          - img "Campus Companion mobile app" [ref=e211]
+          - generic [ref=e212]:
+            - generic [ref=e213]:
+              - heading "Campus Companion" [level=3] [ref=e214]
+              - generic [ref=e215]: "2024"
+            - paragraph [ref=e216]: Full-stack mobile app on React Native and FastAPI with a real-time web-scraping microservice. Ran the Agile sprint cadence for an eight-person team.
+            - paragraph [ref=e217]: React Native · FastAPI · NoSQL
+          - generic [ref=e218]: 08 ↗
+      - listitem [ref=e219]:
+        - 'link "JOS operating system console JOS Operating System 2024 32-bit x86 OS built from scratch: bootloader, paging kernel, syscalls, preemptive scheduling, IPC. Booted on QEMU with GDB debugging. C · x86 Assembly · QEMU" [ref=e220] [cursor=pointer]':
+          - /url: https://github.com/aj-arts/jos-operating-system-implementation
+          - img "JOS operating system console" [ref=e222]
+          - generic [ref=e223]:
+            - generic [ref=e224]:
+              - heading "JOS Operating System" [level=3] [ref=e225]
+              - generic [ref=e226]: "2024"
+            - paragraph [ref=e227]: "32-bit x86 OS built from scratch: bootloader, paging kernel, syscalls, preemptive scheduling, IPC. Booted on QEMU with GDB debugging."
+            - paragraph [ref=e228]: C · x86 Assembly · QEMU
+          - generic [ref=e229]: 09 ↗
+  - generic [ref=e231]:
+    - generic [ref=e233]:
+      - generic [ref=e234]:
+        - generic [ref=e235]: §03
+        - heading "Stack" [level=2] [ref=e236]
+      - generic [ref=e237]: tools that ship
+    - generic [ref=e238]:
+      - generic [ref=e239]:
+        - heading "Languages" [level=3] [ref=e240]
+        - list [ref=e241]:
+          - listitem [ref=e242]:
+            - generic [ref=e243]: Python
+            - generic [ref=e244]: ·
+          - listitem [ref=e245]:
+            - generic [ref=e246]: TypeScript
+            - generic [ref=e247]: ·
+          - listitem [ref=e248]:
+            - generic [ref=e249]: JavaScript
+            - generic [ref=e250]: ·
+          - listitem [ref=e251]:
+            - generic [ref=e252]: C / C++
+            - generic [ref=e253]: ·
+          - listitem [ref=e254]:
+            - generic [ref=e255]: x86 Assembly
+            - generic [ref=e256]: ·
+          - listitem [ref=e257]:
+            - generic [ref=e258]: SQL
+            - generic [ref=e259]: ·
+          - listitem [ref=e260]:
+            - generic [ref=e261]: NoSQL
+            - generic [ref=e262]: ·
+          - listitem [ref=e263]:
+            - generic [ref=e264]: Bash
+            - generic [ref=e265]: ·
+          - listitem [ref=e266]:
+            - generic [ref=e267]: LaTeX
+            - generic [ref=e268]: ·
+          - listitem [ref=e269]:
+            - generic [ref=e270]: HTML / CSS
+            - generic [ref=e271]: .
+      - generic [ref=e272]:
+        - heading "Frameworks & Tools" [level=3] [ref=e273]
+        - list [ref=e274]:
+          - listitem [ref=e275]:
+            - generic [ref=e276]: React
+            - generic [ref=e277]: ·
+          - listitem [ref=e278]:
+            - generic [ref=e279]: Next.js
+            - generic [ref=e280]: ·
+          - listitem [ref=e281]:
+            - generic [ref=e282]: Node.js
+            - generic [ref=e283]: ·
+          - listitem [ref=e284]:
+            - generic [ref=e285]: FastAPI
+            - generic [ref=e286]: ·
+          - listitem [ref=e287]:
+            - generic [ref=e288]: PyTorch
+            - generic [ref=e289]: ·
+          - listitem [ref=e290]:
+            - generic [ref=e291]: LlamaIndex
+            - generic [ref=e292]: ·
+          - listitem [ref=e293]:
+            - generic [ref=e294]: Strands SDK
+            - generic [ref=e295]: ·
+          - listitem [ref=e296]:
+            - generic [ref=e297]: AWS AgentCore
+            - generic [ref=e298]: ·
+          - listitem [ref=e299]:
+            - generic [ref=e300]: Docker
+            - generic [ref=e301]: ·
+          - listitem [ref=e302]:
+            - generic [ref=e303]: QEMU
+            - generic [ref=e304]: ·
+          - listitem [ref=e305]:
+            - generic [ref=e306]: Git
+            - generic [ref=e307]: .
+  - generic [ref=e309]:
+    - generic [ref=e311]:
+      - generic [ref=e312]:
+        - generic [ref=e313]: §04
+        - heading "About" [level=2] [ref=e314]
+      - generic [ref=e315]: the rest of the story
+    - generic [ref=e316]:
+      - generic [ref=e317]:
+        - paragraph [ref=e318]: I'm an Honors BS Computer Science and MS Artificial Intelligence student at Oregon State University. Dean's List seven times. Recipient of the Drucilla Shepard Smith Award for a perfect GPA.
+        - paragraph [ref=e319]: Outside the terminal, I write and DJ music, carve turns on a snowboard, and dance — badly, but joyfully. The best engineers I know all have stories that begin somewhere other than a keyboard.
+        - paragraph [ref=e320]: I care about taste in software the way other people care about taste in cooking. The work matters; the way you do the work matters more.
+      - complementary [ref=e321]:
+        - paragraph [ref=e322]: Off-keyboard
+        - list [ref=e323]:
+          - listitem [ref=e324]: · Songwriting and DJing
+          - listitem [ref=e325]: · Snowboarding
+          - listitem [ref=e326]: · Dancing
+          - listitem [ref=e327]: · Reading about systems
+        - paragraph [ref=e328]: Indices
+        - generic [ref=e329]:
+          - generic [ref=e330]:
+            - term [ref=e331]: Hackathons won
+            - definition [ref=e332]: "6"
+          - generic [ref=e333]:
+            - term [ref=e334]: Dean's List terms
+            - definition [ref=e335]: "7"
+          - generic [ref=e336]:
+            - term [ref=e337]: OSU GPA
+            - definition [ref=e338]: "4.00"
+          - generic [ref=e339]:
+            - term [ref=e340]: Agent team led
+            - definition [ref=e341]: 8 ppl
+  - generic [ref=e343]:
+    - paragraph [ref=e344]: §05 / Reach
+    - heading "Let's build something." [level=2] [ref=e345]:
+      - text: Let's build
+      - text: something.
+    - generic [ref=e346]:
+      - paragraph [ref=e348]: I'm open to summer-2027 PM and engineering conversations, research collaborations on AI safety / multi-agent systems, and short-form gigs that ship something real.
+      - generic [ref=e349]:
+        - link "ajinkyagokule@gmail.com" [ref=e350] [cursor=pointer]:
+          - /url: mailto:ajinkyagokule@gmail.com
+          - text: ajinkyagokule@gmail.com↗
+        - paragraph [ref=e351]: "Response window: 24h on weekdays."
+  - generic [ref=e354]:
+    - generic [ref=e355]: © 2026 Ajinkya Gokule. All work shipped on real users.
+    - generic [ref=e356]: Set in Bricolage Grotesque & JetBrains Mono. Built with Next.js.
+    - link "Back to top" [ref=e357] [cursor=pointer]:
+      - /url: "#top"
+      - text: Back to top ↑
