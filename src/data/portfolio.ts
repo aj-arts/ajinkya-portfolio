@@ -83,7 +83,7 @@ export const experiences: Experience[] = [
   {
     role: "AI Security Research Assistant",
     company: "Secure AI Systems Lab (SAIL), OSU",
-    date: "Dec 2023 — Present",
+    date: "Dec 2023 — Sep 2025",
     location: "Corvallis, OR",
     description:
       "Researching adversarial robustness of Implicit Neural Representations and NFT-based image classifiers under PGD attacks across MNIST, CIFAR-10, and CIFAR-100.",

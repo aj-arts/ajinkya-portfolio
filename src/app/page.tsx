@@ -131,12 +131,13 @@ function Hero() {
                 OSU Genesis Team — production agents on AWS AgentCore.
               </li>
               <li>
-                <span className="text-ink">PINNs research</span> at HP — fluid
-                flow and heat transfer in semiconductor cooling.
+                <span className="text-ink">Hackathons</span> — most recently
+                OpenHealth, an agentic medical-bill transparency platform;
+                NVIDIA track winner.
               </li>
               <li>
-                <span className="text-ink">Adversarial ML</span> at SAIL — INR
-                and NFT classifiers under PGD attack.
+                <span className="text-ink">Incoming PM</span> at Microsoft
+                Security — summer 2026 on product strategy.
               </li>
             </ul>
           </Enter>
