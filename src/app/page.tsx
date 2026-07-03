@@ -74,12 +74,12 @@ function Hero() {
           <div className="flex flex-wrap items-baseline justify-between gap-4 font-mono text-[12px] tracking-wide text-ink-soft md:text-[13px]">
             <span className="inline-flex items-center gap-2">
               <span className="pulse-dot" aria-hidden />
-              <span>Available · Summer 2026</span>
+              <span>Open to · Summer 2027</span>
             </span>
             <span className="text-ink-mute">
               <span className="text-vermillion">↗</span>{" "}
-              <span className="text-ink-soft">Microsoft Security</span>{" "}
-              <span className="text-ink-mute">/</span> PM Intern, incoming
+              <span className="text-ink-soft">Microsoft Cloud + AI</span>{" "}
+              <span className="text-ink-mute">/</span> Cybersecurity Intern
             </span>
           </div>
         </Enter>
@@ -110,10 +110,10 @@ function Hero() {
           <Enter delay={240} as="div" className="md:col-span-7">
             <p className="max-w-[60ch] text-balance text-lg leading-[1.65] text-ink-soft md:text-xl md:leading-[1.6]">
               Software engineer and AI / multi-agent systems builder. CS and
-              MS-AI honors student at Oregon State, leading agent systems on
-              the OSU Genesis Team and researching physics-informed neural
-              networks at HP. Six-time hackathon winner, two-time research
-              symposium presenter, one-time operating-system author.
+              MS-AI honors student at Oregon State, currently securing AI and
+              cloud systems at Microsoft and leading agent systems on OSU's
+              BeavsBuild team. Six-time hackathon winner, RL-framework
+              co-author, one-time operating-system author.
             </p>
           </Enter>
 
@@ -127,17 +127,17 @@ function Hero() {
             </p>
             <ul className="mt-4 space-y-3 font-sans text-[15px] leading-[1.55] text-ink-soft">
               <li>
-                <span className="text-ink">Multi-agent systems</span> on the
-                OSU Genesis Team — production agents on AWS AgentCore.
+                <span className="text-ink">Microsoft Cloud + AI</span> —
+                security of AI agents and the cloud they run on.
+              </li>
+              <li>
+                <span className="text-ink">Multi-agent systems</span> on OSU's
+                BeavsBuild team — deep research agents on AWS AgentCore.
               </li>
               <li>
                 <span className="text-ink">Hackathons</span> — most recently
-                OpenHealth, an agentic medical-bill transparency platform;
-                NVIDIA track winner.
-              </li>
-              <li>
-                <span className="text-ink">Incoming PM</span> at Microsoft
-                Security — summer 2026 on product strategy.
+                Trust Me Bro, an AI agent-security benchmark; Microsoft
+                Hackathon winner.
               </li>
             </ul>
           </Enter>
@@ -398,13 +398,13 @@ function About() {
         <div className="grid gap-12 md:grid-cols-12 md:gap-x-12">
           <div className="space-y-6 md:col-span-7">
             <p className="text-pretty font-sans text-xl leading-[1.6] text-ink md:text-2xl md:leading-[1.55]">
-              I'm an Honors BS Computer Science and MS Artificial
-              Intelligence student at{" "}
+              I'm an Honors BS Computer Science (Economics minor) and MS
+              Artificial Intelligence student at{" "}
               <span className="border-b border-rule-strong">
                 Oregon State University
               </span>
-              . Dean's List seven times. Recipient of the Drucilla Shepard
-              Smith Award for a perfect GPA.
+              , graduating June 2027. Dean's List seven times. Recipient of
+              the Drucilla Shepard Smith Award for a perfect GPA.
             </p>
             <p className="text-pretty font-sans text-lg leading-[1.7] text-ink-soft md:text-xl md:leading-[1.65]">
               Outside the terminal, I write and DJ music, carve turns on a
@@ -457,8 +457,8 @@ function About() {
                 <dd className="font-mono text-ink">4.00</dd>
               </div>
               <div className="flex items-baseline justify-between gap-3 border-b border-rule pb-2">
-                <dt>Agent team led</dt>
-                <dd className="font-mono text-ink">8 ppl</dd>
+                <dt>Frontier models benchmarked</dt>
+                <dd className="font-mono text-ink">10</dd>
               </div>
             </dl>
           </aside>

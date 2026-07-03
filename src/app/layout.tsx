@@ -20,12 +20,12 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Ajinkya Gokule — Software Engineer",
   description:
-    "Ajinkya Gokule. Software engineer and AI / multi-agent systems builder. Microsoft Security PM intern, OSU CS + MS-AI, 5× hackathon winner.",
+    "Ajinkya Gokule. Software engineer and AI / multi-agent systems builder. Microsoft Cloud + AI cybersecurity intern, OSU CS + MS-AI, 6× hackathon winner.",
   authors: [{ name: "Ajinkya Gokule" }],
   openGraph: {
     title: "Ajinkya Gokule — Software Engineer",
     description:
-      "Software engineer and AI / multi-agent systems builder. Currently at Microsoft Security, OSU Genesis Team, and HP Engineering Modelling.",
+      "Software engineer and AI / multi-agent systems builder. Currently at Microsoft Cloud + AI security and OSU's BeavsBuild multi-agent team.",
     type: "website",
   },
 };
