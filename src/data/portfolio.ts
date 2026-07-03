@@ -38,7 +38,7 @@ export const navItems = [
 export const socialLinks: SocialLink[] = [
   {
     label: "Resume",
-    href: "https://github.com/aj-arts/ajinkya-resume/releases/download/latest-master/ajinkya-gokule-master-resume.pdf",
+    href: "https://github.com/aj-arts/ajinkya-resume/releases/download/latest/ajinkya-gokule-master-resume.pdf",
     external: true,
   },
   { label: "Email", href: "mailto:ajinkyagokule@gmail.com" },
