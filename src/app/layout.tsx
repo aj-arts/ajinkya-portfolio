@@ -1,42 +1,36 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, JetBrains_Mono } from "next/font/google";
-
+import { Barlow_Condensed, Chivo } from "next/font/google";
 import "./globals.css";
 
-const bricolage = Bricolage_Grotesque({
+const display = Barlow_Condensed({
   subsets: ["latin"],
+  weight: ["600", "700", "800", "900"],
   display: "swap",
-  variable: "--font-bricolage",
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-display",
 });
-
-const jetbrains = JetBrains_Mono({
+const body = Chivo({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-jetbrains",
-  weight: ["400", "500"],
+  variable: "--font-body",
 });
 
 export const metadata: Metadata = {
-  title: "Ajinkya Gokule — Software Engineer",
+  title: "Ajinkya Gokule | Product, software & side quests",
   description:
-    "Ajinkya Gokule. Software engineer and AI / multi-agent systems builder. Microsoft Cloud + AI cybersecurity intern, OSU CS + MS-AI, 6× hackathon winner.",
+    "Product builder and software engineer working on AI systems, agent security, and research. Previously at Microsoft Cloud + AI. Computer science master's student at Oregon State University.",
   authors: [{ name: "Ajinkya Gokule" }],
   openGraph: {
-    title: "Ajinkya Gokule — Software Engineer",
+    title: "Ajinkya Gokule | Product, software & side quests",
     description:
-      "Software engineer and AI / multi-agent systems builder. Currently at Microsoft Cloud + AI security and OSU's BeavsBuild multi-agent team.",
+      "From Microsoft product and engineering work to AI research and hackathon projects. An interactive collection of work by Ajinkya Gokule.",
     type: "website",
   },
 };
-
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${bricolage.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>{children}</body>
     </html>
   );

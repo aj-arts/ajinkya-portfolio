@@ -29,3 +29,7 @@ Thumbs.db
 *.swp
 *.swo
 .vercel
+
+# Local browser review artifacts
+.playwright-mcp/
+output/redesign/

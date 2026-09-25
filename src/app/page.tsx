@@ -1,539 +1,584 @@
 import Image from "next/image";
-
-import { Nav } from "@/components/Nav";
-import { Enter } from "@/components/Reveal";
+import Sampler from "@/components/Sampler";
+import CopyEmail from "@/components/CopyEmail";
+import { Arrow, Monogram } from "@/components/Marks";
 import {
   experiences,
+  type Project,
+  projectPeriod,
   projects,
+  recognition,
   skillGroups,
   socialLinks,
 } from "@/data/portfolio";
+import { projectNotes } from "@/data/liner-notes";
+
+const resume = socialLinks.find((link) => link.label === "Resume")!;
+const featureProjects = [projects[0], projects[1], projects[4]].filter(
+  (project): project is Project & { image: string; alt: string } =>
+    Boolean(project.image && project.alt),
+);
+const archiveProjects = projects.filter(
+  (project) =>
+    !featureProjects.some((feature) => feature.name === project.name),
+);
+const trackOrder = [
+  projects[0],
+  projects[1],
+  projects[2],
+  projects[4],
+  ...projects.filter((_, index) => ![0, 1, 2, 4].includes(index)),
+];
+const trackNumber = (name: string) =>
+  String(trackOrder.findIndex((project) => project.name === name) + 1).padStart(
+    2,
+    "0",
+  );
+const clean = (text: string) => text.replace(/ — /g, " · ").replace(/—/g, "–");
 
 export default function Home() {
   return (
-    <main id="top" className="text-ink">
-      <Nav />
-      <Hero />
-      <Work />
-      <Selected />
-      <Stack />
-      <About />
-      <Contact />
-      <SiteFooter />
-    </main>
-  );
-}
-
-function Container({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div className={`mx-auto w-[var(--content)] ${className}`}>{children}</div>
-  );
-}
-
-function SectionHeader({
-  label,
-  index,
-  meta,
-}: {
-  label: string;
-  index: string;
-  meta?: string;
-}) {
-  return (
-    <header className="mb-12 md:mb-16">
-      <div className="flex items-baseline justify-between gap-4 border-b border-rule pb-4">
-        <div className="flex items-baseline gap-3">
-          <span className="font-mono text-[12px] tracking-wider text-ink-faint">
-            §{index}
-          </span>
-          <h2 className="font-sans text-2xl font-light tracking-tight text-ink md:text-3xl">
-            {label}
-          </h2>
-        </div>
-        {meta ? (
-          <span className="hidden font-mono text-[12px] tracking-wider text-ink-mute sm:block">
-            {meta}
-          </span>
-        ) : null}
-      </div>
-    </header>
-  );
-}
-
-function Hero() {
-  return (
-    <section className="paper-grain relative pb-20 pt-8 md:pb-28 md:pt-14">
-      <Container>
-        <Enter delay={0}>
-          <div className="flex flex-wrap items-baseline justify-between gap-4 font-mono text-[12px] tracking-wide text-ink-soft md:text-[13px]">
-            <span className="inline-flex items-center gap-2">
-              <span className="pulse-dot" aria-hidden />
-              <span>Open to · Summer 2027</span>
-            </span>
-            <span className="text-ink-mute">
-              <span className="text-vermillion">↗</span>{" "}
-              <span className="text-ink-soft">Microsoft Cloud + AI</span>{" "}
-              <span className="text-ink-mute">/</span> Cybersecurity Intern
-            </span>
-          </div>
-        </Enter>
-
-        <Enter
-          delay={120}
-          as="div"
-          className="mt-12 md:mt-20"
-          style={{
-            fontFeatureSettings: '"ss01", "cv11"',
-          }}
-        >
-          <h1
-            className="font-sans font-light tracking-[-0.04em] leading-[0.86] text-ink"
-            style={{
-              fontSize: "clamp(4.5rem, 18vw, 14rem)",
-              fontWeight: 300,
-            }}
-          >
-            <span className="block">Ajinkya</span>
-            <span className="block">
-              Gokule<span className="text-vermillion">.</span>
-            </span>
-          </h1>
-        </Enter>
-
-        <div className="mt-12 grid gap-12 md:mt-20 md:grid-cols-12 md:gap-x-12 md:gap-y-10">
-          <Enter delay={240} as="div" className="md:col-span-7">
-            <p className="max-w-[60ch] text-balance text-lg leading-[1.65] text-ink-soft md:text-xl md:leading-[1.6]">
-              Software engineer and AI / multi-agent systems builder. CS and
-              MS-AI honors student at Oregon State, currently securing AI and
-              cloud systems at Microsoft and leading agent systems on OSU's
-              BeavsBuild team. Six-time hackathon winner, RL-framework
-              co-author, one-time operating-system author.
-            </p>
-          </Enter>
-
-          <Enter
-            delay={320}
-            as="div"
-            className="md:col-span-4 md:col-start-9"
-          >
-            <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-ink-faint">
-              Currently
-            </p>
-            <ul className="mt-4 space-y-3 font-sans text-[15px] leading-[1.55] text-ink-soft">
-              <li>
-                <span className="text-ink">Microsoft Cloud + AI</span> —
-                security of AI agents and the cloud they run on.
-              </li>
-              <li>
-                <span className="text-ink">Multi-agent systems</span> on OSU's
-                BeavsBuild team — deep research agents on AWS AgentCore.
-              </li>
-              <li>
-                <span className="text-ink">Hackathons</span> — most recently
-                Trust Me Bro, an AI agent-security benchmark; Microsoft
-                Hackathon winner.
-              </li>
-            </ul>
-          </Enter>
-        </div>
-
-        <Enter delay={420} className="mt-14 md:mt-20">
-          <ul className="-mx-2 flex flex-wrap items-center gap-x-2 gap-y-3 font-sans text-base text-ink md:text-lg">
-            {socialLinks.map((link, i) => (
-              <li key={link.label} className="flex items-center">
-                {i > 0 ? (
-                  <span
-                    aria-hidden
-                    className="mx-3 text-ink-faint md:mx-4"
-                  >
-                    ·
-                  </span>
-                ) : null}
-                <a
-                  href={link.href}
-                  target={link.external ? "_blank" : undefined}
-                  rel={link.external ? "noopener noreferrer" : undefined}
-                  className="link-grow font-medium"
-                >
-                  {link.label}
-                  <span aria-hidden className="ml-1.5 text-ink-faint">
-                    ↗
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Enter>
-      </Container>
-    </section>
-  );
-}
-
-function Work() {
-  return (
-    <section
-      id="work"
-      className="scroll-mt-24 border-t border-rule bg-paper-2 py-24 md:py-32"
-    >
-      <Container>
-        <SectionHeader label="Work" index="01" meta="2022 → Now" />
-        <ol className="space-y-0">
-          {experiences.map((exp, i) => (
-            <li
-              key={`${exp.company}-${exp.role}`}
-              className="grid gap-x-8 gap-y-3 border-b border-rule py-10 md:grid-cols-12 md:py-12"
-            >
-              <div className="md:col-span-3">
-                <p className="font-mono text-[12px] uppercase tracking-wider text-ink-soft">
-                  {exp.date}
-                </p>
-                <p className="mt-1.5 font-mono text-[12px] tracking-wide text-ink-faint">
-                  {exp.location}
-                </p>
-              </div>
-              <div className="md:col-span-9">
-                <h3 className="font-sans text-2xl font-medium leading-tight tracking-tight text-ink md:text-3xl">
-                  {exp.role}
-                </h3>
-                <p className="mt-1 font-sans text-base text-ink-soft md:text-lg">
-                  {exp.company}
-                </p>
-                <p className="mt-5 max-w-[64ch] text-pretty font-sans text-[15px] leading-[1.7] text-ink-soft md:text-base">
-                  {exp.description}
-                </p>
-              </div>
-              <span
-                aria-hidden
-                className="md:col-span-12 font-mono text-[10px] tracking-[0.3em] text-ink-faint"
-              >
-                {String(i + 1).padStart(2, "0")} / {String(experiences.length).padStart(2, "0")}
-              </span>
-            </li>
-          ))}
-        </ol>
-      </Container>
-    </section>
-  );
-}
-
-function Selected() {
-  const [featured, ...rest] = projects;
-
-  return (
-    <section
-      id="selected"
-      className="scroll-mt-24 border-t border-rule py-24 md:py-32"
-    >
-      <Container>
-        <SectionHeader
-          label="Selected"
-          index="02"
-          meta={`${projects.length} shipped · ${projects.filter((p) => p.winner).length} winners`}
-        />
-
-        <a
-          href={featured.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="thumb-zoom group block"
-        >
-          <div className="grid gap-8 border-b border-rule pb-16 md:grid-cols-12 md:gap-12 md:pb-24">
-            <div className="relative aspect-[16/10] overflow-hidden bg-paper-3 md:col-span-7">
-              <Image
-                src={featured.image}
-                alt={featured.alt}
-                fill
-                sizes="(min-width: 768px) 60vw, 100vw"
-                className="object-cover"
-                priority
-              />
-              {featured.winner ? (
-                <span className="absolute left-0 top-0 bg-paper px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-vermillion">
-                  Winner
-                </span>
-              ) : null}
-            </div>
-            <div className="flex flex-col justify-end md:col-span-5">
-              <p className="font-mono text-[12px] uppercase tracking-wider text-ink-faint">
-                Featured · {featured.year}
-              </p>
-              <h3 className="mt-3 font-sans text-4xl font-light tracking-tight text-ink md:text-5xl">
-                {featured.name}
-                <span className="text-vermillion">.</span>
-              </h3>
-              <p className="mt-5 max-w-[52ch] text-pretty font-sans text-base leading-[1.7] text-ink-soft md:text-lg">
-                {featured.description}
-              </p>
-              <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 font-mono text-[11px] uppercase tracking-wider text-ink-mute">
-                {featured.tags.map((tag, i) => (
-                  <span key={tag} className="inline-flex items-center gap-3">
-                    {i > 0 ? <span className="text-ink-faint">/</span> : null}
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <span
-                aria-hidden
-                className="mt-8 inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-wider text-ink-soft transition-colors group-hover:text-vermillion"
-              >
-                Read the writeup <span>↗</span>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <ol className="grid gap-x-12 md:grid-cols-2">
-          {rest.map((project, i) => (
-            <li
-              key={project.name}
-              className="border-b border-rule py-10 md:py-12"
-            >
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="thumb-zoom group grid grid-cols-[100px_1fr] gap-5 md:grid-cols-[120px_1fr] md:gap-7"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-paper-3">
-                  <Image
-                    src={project.image}
-                    alt={project.alt}
-                    fill
-                    sizes="120px"
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="flex items-baseline justify-between gap-3">
-                    <h3 className="font-sans text-xl font-medium tracking-tight text-ink md:text-2xl">
-                      {project.name}
-                    </h3>
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-ink-faint">
-                      {project.year}
-                      {project.winner ? (
-                        <span className="ml-2 text-vermillion">★</span>
-                      ) : null}
-                    </span>
-                  </div>
-                  <p className="mt-2 max-w-[44ch] text-pretty font-sans text-[14px] leading-[1.65] text-ink-soft md:text-[15px]">
-                    {project.description}
-                  </p>
-                  <p className="mt-3 font-mono text-[10.5px] uppercase tracking-wider text-ink-mute">
-                    {project.tags.join(" · ")}
-                  </p>
-                </div>
-                <span
-                  aria-hidden
-                  className="col-span-2 mt-4 inline-flex items-center gap-1.5 justify-self-end font-mono text-[11px] uppercase tracking-wider text-ink-faint transition-colors group-hover:text-vermillion"
-                >
-                  {String(i + 2).padStart(2, "0")} ↗
-                </span>
-              </a>
-            </li>
-          ))}
-        </ol>
-      </Container>
-    </section>
-  );
-}
-
-function Stack() {
-  return (
-    <section
-      id="stack"
-      className="scroll-mt-24 border-t border-rule bg-paper-2 py-24 md:py-32"
-    >
-      <Container>
-        <SectionHeader label="Stack" index="03" meta="tools that ship" />
-        <div className="grid gap-12 md:grid-cols-12 md:gap-x-12">
-          {skillGroups.map((group) => (
-            <div key={group.title} className="min-w-0 md:col-span-6">
-              <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-faint">
-                {group.title}
-              </h3>
-              <ul className="mt-5 flex flex-wrap items-baseline font-sans text-2xl font-light leading-[1.45] tracking-tight text-ink md:text-3xl">
-                {group.skills.map((skill, i) => {
-                  const isLast = i === group.skills.length - 1;
-                  return (
-                    <li
-                      key={skill}
-                      className="inline-flex items-baseline"
-                    >
-                      <span>{skill}</span>
-                      {isLast ? (
-                        <span aria-hidden className="text-vermillion">
-                          .
-                        </span>
-                      ) : (
-                        <span aria-hidden className="mx-2 text-ink-faint">
-                          ·
-                        </span>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-function About() {
-  return (
-    <section
-      id="about"
-      className="scroll-mt-24 border-t border-rule py-24 md:py-32"
-    >
-      <Container>
-        <SectionHeader label="About" index="04" meta="the rest of the story" />
-        <div className="grid gap-12 md:grid-cols-12 md:gap-x-12">
-          <div className="space-y-6 md:col-span-7">
-            <p className="text-pretty font-sans text-xl leading-[1.6] text-ink md:text-2xl md:leading-[1.55]">
-              I'm an Honors BS Computer Science (Economics minor) and MS
-              Artificial Intelligence student at{" "}
-              <span className="border-b border-rule-strong">
-                Oregon State University
-              </span>
-              , graduating June 2027. Dean's List seven times. Recipient of
-              the Drucilla Shepard Smith Award for a perfect GPA.
-            </p>
-            <p className="text-pretty font-sans text-lg leading-[1.7] text-ink-soft md:text-xl md:leading-[1.65]">
-              Outside the terminal, I write and DJ music, carve turns on a
-              snowboard, and dance — badly, but joyfully. The best engineers
-              I know all have stories that begin somewhere other than a
-              keyboard.
-            </p>
-            <p className="text-pretty font-sans text-lg leading-[1.7] text-ink-soft md:text-xl md:leading-[1.65]">
-              I care about taste in software the way other people care about
-              taste in cooking. The work matters; the way you do the work
-              matters more.
-            </p>
-          </div>
-
-          <aside className="md:col-span-4 md:col-start-9">
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-faint">
-              Off-keyboard
-            </p>
-            <ul className="mt-5 space-y-3 font-sans text-base leading-[1.55] text-ink-soft">
-              <li>
-                <span className="text-vermillion">·</span> Songwriting and
-                DJing
-              </li>
-              <li>
-                <span className="text-vermillion">·</span> Snowboarding
-              </li>
-              <li>
-                <span className="text-vermillion">·</span> Dancing
-              </li>
-              <li>
-                <span className="text-vermillion">·</span> Reading about
-                systems
-              </li>
-            </ul>
-
-            <p className="mt-10 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-faint">
-              Indices
-            </p>
-            <dl className="mt-5 space-y-3 font-sans text-base text-ink-soft">
-              <div className="flex items-baseline justify-between gap-3 border-b border-rule pb-2">
-                <dt>Hackathons won</dt>
-                <dd className="font-mono text-ink">6</dd>
-              </div>
-              <div className="flex items-baseline justify-between gap-3 border-b border-rule pb-2">
-                <dt>Dean's List terms</dt>
-                <dd className="font-mono text-ink">7</dd>
-              </div>
-              <div className="flex items-baseline justify-between gap-3 border-b border-rule pb-2">
-                <dt>OSU GPA</dt>
-                <dd className="font-mono text-ink">4.00</dd>
-              </div>
-              <div className="flex items-baseline justify-between gap-3 border-b border-rule pb-2">
-                <dt>Frontier models benchmarked</dt>
-                <dd className="font-mono text-ink">10</dd>
-              </div>
-            </dl>
-          </aside>
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-function Contact() {
-  return (
-    <section className="border-t border-rule py-28 md:py-40">
-      <Container>
-        <p className="font-mono text-[12px] uppercase tracking-[0.18em] text-ink-faint">
-          §05 / Reach
-        </p>
-        <h2
-          className="mt-8 font-sans font-light leading-[0.92] tracking-[-0.035em] text-ink"
-          style={{ fontSize: "clamp(3rem, 11vw, 9rem)", fontWeight: 300 }}
-        >
-          Let's build
-          <br />
-          something<span className="text-vermillion">.</span>
-        </h2>
-        <div className="mt-12 grid gap-10 md:mt-16 md:grid-cols-12 md:gap-12">
-          <div className="md:col-span-7">
-            <p className="max-w-[52ch] text-pretty font-sans text-xl leading-[1.55] text-ink-soft">
-              I'm open to summer-2027 PM and engineering conversations,
-              research collaborations on AI safety / multi-agent systems, and
-              short-form gigs that ship something real.
-            </p>
-          </div>
-          <div className="md:col-span-4 md:col-start-9">
+    <>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
+      <main id="main">
+        <div className="hero-stage" id="top">
+          <header className="site-header">
             <a
-              href="mailto:ajinkyagokule@gmail.com"
-              className="link-grow inline-block font-sans text-2xl font-medium tracking-tight text-ink md:text-3xl"
+              href="#top"
+              className="brand"
+              aria-label="Ajinkya Gokule, back to top"
             >
-              ajinkyagokule@gmail.com
-              <span aria-hidden className="ml-2 text-ink-faint">
-                ↗
+              <Monogram />
+              <span>
+                AJINKYA GOKULE
+                <br />
+                <span>SOFTWARE & OTHER EXPERIMENTS</span>
               </span>
             </a>
-            <p className="mt-4 font-mono text-[12px] tracking-wide text-ink-mute">
-              Response window: 24h on weekdays.
-            </p>
+            <nav aria-label="Main navigation">
+              <a href="#work">
+                The work <span>01</span>
+              </a>
+              <a href="#about">
+                The person <span>02</span>
+              </a>
+              <a href="#contact" className="nav-contact">
+                Say hello <Arrow diagonal />
+              </a>
+            </nav>
+          </header>
+          <div>
+            <section className="hero" aria-labelledby="hero-title">
+              <div className="hero-copy">
+                <div className="eyebrow">
+                  <span className="status-dot" /> PRODUCT / SOFTWARE / AI
+                </div>
+                <h1 id="hero-title">
+                  AJINKYA
+                  <br />
+                  GOKULE<span className="name-period">.</span>
+                </h1>
+                <p className="hero-description">
+                  I build AI products.
+                  <br />
+                  Then put them
+                  <br />
+                  <span>to the test.</span>
+                </p>
+                <div className="hero-current">
+                  <span className="mini-cross" aria-hidden="true">
+                    +
+                  </span>
+                  <p>
+                    Previously at <strong>Microsoft, Cloud + AI</strong>
+                    <br />
+                    Product Manager / Software Engineer Intern
+                  </p>
+                </div>
+                <a
+                  href={resume.href}
+                  className="text-link hero-resume"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  The résumé <Arrow diagonal />
+                </a>
+              </div>
+              <Sampler />
+            </section>
+            <div className="hero-foot">
+              <a href="#work">
+                GOOD THINGS BELOW <span>↓</span>
+              </a>
+              <span>AI SYSTEMS / PRODUCT / SECURITY</span>
+              <span>
+                PACIFIC NORTHWEST, USA{" "}
+                <span className="pnw-mark" aria-hidden="true">
+                  ↗
+                </span>
+              </span>
+            </div>
           </div>
         </div>
-      </Container>
-    </section>
-  );
-}
 
-function SiteFooter() {
-  return (
-    <footer className="paper-grain border-t border-rule bg-paper-2 py-10">
-      <Container>
-        <div className="flex flex-wrap items-baseline justify-between gap-4 font-mono text-[11px] tracking-wide text-ink-mute">
+        <section
+          className="work-section section-shell"
+          id="work"
+          aria-labelledby="work-title"
+        >
+          <div className="section-kicker">
+            <span>01 / EXPERIMENTS</span>
+            <span>A SELECTION, {projectPeriod}.</span>
+          </div>
+          <div className="work-heading">
+            <h2 id="work-title">Selected work.</h2>
+            <p>
+              Security benchmarks, useful agents,
+              <br />
+              and smaller models that reason.
+            </p>
+          </div>
+          <div className="featured-projects">
+            {featureProjects.map((project, index) => {
+              const note = projectNotes[project.name];
+              return (
+                <article
+                  className={`feature feature-${index}`}
+                  key={project.name}
+                >
+                  <a
+                    className="feature-art"
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open ${project.name}, opens in a new tab`}
+                  >
+                    <div className="art-topline">
+                      <span>EXPERIMENT / {trackNumber(project.name)}</span>
+                      <span>{project.year}</span>
+                    </div>
+                    {index === 0 ? (
+                      <>
+                        <div className="security-wordmark" aria-hidden="true">
+                          TRUST
+                          <br />
+                          <span>ISSUES.</span>
+                        </div>
+                        <div className="security-stamp" aria-hidden="true">
+                          10 MODELS
+                          <br />
+                          <strong>ZERO</strong>
+                          <br />
+                          IMMUNE.
+                        </div>
+                        <div className="project-screenshot security-screenshot">
+                          <Image
+                            src={project.image}
+                            alt={project.alt}
+                            width={900}
+                            height={570}
+                            sizes="(max-width: 760px) 90vw, 52vw"
+                          />
+                        </div>
+                        <span className="art-bottomline">
+                          PROMPT INJECTION, MEET YOUR BENCHMARK.
+                        </span>
+                      </>
+                    ) : index === 1 ? (
+                      <>
+                        <div className="health-wordmark" aria-hidden="true">
+                          a little
+                          <br />
+                          more <span>human.</span>
+                        </div>
+                        <div className="health-cross" aria-hidden="true">
+                          +
+                        </div>
+                        <div className="project-screenshot health-screenshot">
+                          <Image
+                            src={project.image}
+                            alt={project.alt}
+                            width={900}
+                            height={570}
+                            sizes="(max-width: 760px) 90vw, 52vw"
+                          />
+                        </div>
+                        <span className="art-bottomline">
+                          LESS GUESSWORK. CLEARER MEDICAL BILLS.
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <div className="research-art" aria-hidden="true">
+                          <div className="research-stack stack-back" />
+                          <div className="research-stack stack-middle" />
+                          <div className="research-stack stack-front">
+                            <span>RLoRA</span>
+                            <strong>
+                              SMALL
+                              <br />
+                              MODELS.
+                              <br />
+                              BIG
+                              <br />
+                              REASONING.
+                            </strong>
+                            <div className="research-plot">
+                              {[38, 58, 44, 68, 59, 80, 72, 96].map(
+                                (height, i) => (
+                                  <i key={i} style={{ height: `${height}%` }} />
+                                ),
+                              )}
+                            </div>
+                          </div>
+                          <span className="research-orbit">↗</span>
+                        </div>
+                        <span className="art-bottomline">
+                          A LIGHTER WAY TO LEARN.
+                        </span>
+                      </>
+                    )}
+                    <span className="art-open">
+                      <Arrow diagonal />
+                    </span>
+                  </a>
+                  <div className="feature-copy">
+                    <div className="feature-category">
+                      <span>{trackNumber(project.name)}</span>
+                      {note.category}
+                    </div>
+                    <h3>
+                      <a
+                        href={project.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {project.name}
+                        <Arrow diagonal />
+                      </a>
+                    </h3>
+                    <p>{note.detail}</p>
+                    <div className="project-proof">
+                      <span>{note.evidence}</span>
+                    </div>
+                    <ul className="project-tags" aria-label="Technologies">
+                      {project.tags.map((tag) => (
+                        <li key={tag}>{tag}</li>
+                      ))}
+                    </ul>
+                    <a
+                      className="text-link"
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {index === 2 ? "Read the paper" : "Explore the project"}
+                      <Arrow diagonal />
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+          <div className="catalog-heading">
+            <div>
+              <span className="eyebrow">THERE'S MORE IN THE CRATE</span>
+              <h3>
+                The extended mix
+                <span>
+                  {" "}
+                  / {String(archiveProjects.length).padStart(2, "0")}
+                </span>
+              </h3>
+            </div>
+            <span>OPEN A TRACK TO TAKE A LOOK ↓</span>
+          </div>
+          <div className="project-catalog">
+            {archiveProjects.map((project) => (
+              <details className="catalog-item" key={project.name}>
+                <summary>
+                  <span className="catalog-number">
+                    {trackNumber(project.name)}
+                  </span>
+                  <span className="catalog-name">{project.name}</span>
+                  <span className="catalog-category">
+                    {projectNotes[project.name].category}
+                  </span>
+                  <span className="catalog-year">{project.year}</span>
+                  <span className="catalog-plus" aria-hidden="true">
+                    +
+                  </span>
+                </summary>
+                <div
+                  className={`catalog-detail${project.image ? "" : " catalog-detail-text"}`}
+                >
+                  <div>
+                    <p>{projectNotes[project.name].detail}</p>
+                    <div className="project-proof">
+                      <span>{projectNotes[project.name].evidence}</span>
+                    </div>
+                    <ul className="project-tags" aria-label="Technologies">
+                      {project.tags.map((tag) => (
+                        <li key={tag}>{tag}</li>
+                      ))}
+                    </ul>
+                    {project.href && (
+                      <a
+                        className="text-link"
+                        href={project.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Explore {project.name}
+                        <Arrow diagonal />
+                      </a>
+                    )}
+                  </div>
+                  {project.image && (
+                    <div className="catalog-image">
+                      <Image
+                        src={project.image}
+                        alt={project.alt ?? project.name}
+                        width={600}
+                        height={360}
+                        sizes="(max-width: 760px) 85vw, 32vw"
+                      />
+                    </div>
+                  )}
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section
+          className="experience-section section-shell"
+          id="experience"
+          aria-labelledby="experience-title"
+        >
+          <div className="section-kicker">
+            <span>THE LINER NOTES</span>
+            <a href={resume.href} target="_blank" rel="noopener noreferrer">
+              FULL RÉSUMÉ <Arrow diagonal />
+            </a>
+          </div>
+          <div className="experience-layout">
+            <div className="experience-intro">
+              <h2 id="experience-title">
+                In good
+                <br />
+                company<span>.</span>
+              </h2>
+              <p>
+                Places I've built things,
+                <br />
+                broken things, and learned
+                <br />
+                from people better than me.
+              </p>
+            </div>
+            <div className="experience-list">
+              {experiences.slice(0, 4).map((experience) => (
+                <article
+                  className="experience"
+                  key={`${experience.company}-${experience.role}`}
+                >
+                  <span className="experience-date">
+                    {clean(experience.date)}
+                  </span>
+                  <h3>
+                    {experience.company.split(",")[0]}
+                    {experience.current && (
+                      <span className="current-tag">CURRENT</span>
+                    )}
+                  </h3>
+                  <h4>{experience.role}</h4>
+                  <p>{experience.description}</p>
+                  {experience.highlights && (
+                    <ul className="experience-highlights">
+                      {experience.highlights.map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
+                  )}
+                </article>
+              ))}
+              <details className="earlier-experience">
+                <summary>
+                  More experience <span>2022–present</span>
+                  <span className="catalog-plus" aria-hidden="true">
+                    +
+                  </span>
+                </summary>
+                {experiences.slice(4).map((experience) => (
+                  <article
+                    className="experience"
+                    key={`${experience.company}-${experience.role}`}
+                  >
+                    <span className="experience-date">
+                      {clean(experience.date)}
+                    </span>
+                    <h3>
+                      {experience.company}
+                      {experience.current && (
+                        <span className="current-tag">CURRENT</span>
+                      )}
+                    </h3>
+                    <h4>{experience.role}</h4>
+                    <p>{experience.description}</p>
+                  </article>
+                ))}
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="about-section section-shell"
+          id="about"
+          aria-labelledby="about-title"
+        >
+          <div className="section-kicker">
+            <span>02 / THE PERSON</span>
+            <span>THERE'S ALWAYS A B-SIDE.</span>
+          </div>
+          <div className="about-layout">
+            <div className="about-art" aria-hidden="true">
+              <div className="about-orbit orbit-one" />
+              <div className="about-orbit orbit-two" />
+              <div className="about-orbit orbit-three" />
+              <span className="about-art-label">
+                A WORK IN
+                <br />
+                PROGRESS.
+              </span>
+              <span className="about-sticker">
+                HUMAN
+                <br />
+                AFTER ALL.
+              </span>
+              <span className="about-art-bottom">33⅓ RPM / NEVER ONE NOTE</span>
+            </div>
+            <div className="about-copy">
+              <h2 id="about-title">
+                Away from
+                <br />
+                the keyboard.
+              </h2>
+              <p>
+                I'm Ajinkya, pursuing a Master of Science in Computer Science at
+                Oregon State University with a 4.0 GPA, graduating in June 2027.
+                My education also includes an Honors BS in Computer Science with
+                a minor in Economics.
+              </p>
+              <p>
+                I like figuring out what people need, building something they
+                can use, and testing where it breaks. I lead system design for
+                OSU’s Product Management Club. Away from work, I write songs,
+                play seven instruments, DJ, snowboard, and dance with Kinetic
+                K-pop.
+              </p>
+              <div className="personal-note">
+                <span>ALSO IN THE MIX</span>
+                <p>
+                  Seven instruments <i>/</i> Snowboarding <i>/</i> Kinetic K-pop
+                </p>
+              </div>
+            </div>
+          </div>
+          <section className="toolbox" aria-labelledby="skills-title">
+            <header className="toolbox-heading">
+              <h3 id="skills-title">What I build with</h3>
+              <span className="toolbox-hint">THE TOOLS BEHIND THE WORK</span>
+            </header>
+            <div className="toolbox-groups">
+              {skillGroups.map((group) => (
+                <div key={group.title}>
+                  <h4>{group.title}</h4>
+                  <p>{group.skills.join(" · ")}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+          <section className="toolbox" aria-labelledby="honors-title">
+            <header className="toolbox-heading">
+              <h3 id="honors-title">A few honors</h3>
+              <span className="toolbox-hint">
+                FROM CLASSROOMS TO HACKATHONS
+              </span>
+            </header>
+            <ul className="recognition-list">
+              {recognition.map((honor) => (
+                <li key={honor}>{honor}</li>
+              ))}
+            </ul>
+          </section>
+        </section>
+      </main>
+      <footer className="contact-section section-shell" id="contact">
+        <div className="section-kicker">
+          <span>03 / NEXT TRACK</span>
           <span>
-            © 2026 Ajinkya Gokule.{" "}
-            <span className="text-ink-faint">All work shipped on real users.</span>
+            <i className="status-dot" /> OPEN TO SUMMER 2027 CONVERSATIONS
           </span>
-          <span className="text-ink-faint">
-            Set in <span className="text-ink-soft">Bricolage Grotesque</span> &{" "}
-            <span className="text-ink-soft">JetBrains Mono</span>. Built with
-            Next.js.
-          </span>
-          <a
-            href="#top"
-            className="link-grow text-ink-soft"
-            aria-label="Back to top"
-          >
-            Back to top ↑
+        </div>
+        <div className="contact-heading">
+          <h2>
+            Got a good
+            <br />
+            <a href="mailto:ajinkyagokule@gmail.com">
+              problem?
+              <Arrow diagonal />
+            </a>
+          </h2>
+          <p>
+            Product, engineering, AI,
+            <br />
+            or something I haven't
+            <br />
+            thought of yet.
+            <br />
+            <span>I'd like to hear it.</span>
+          </p>
+        </div>
+        <div className="contact-email">
+          <a href="mailto:ajinkyagokule@gmail.com">ajinkyagokule@gmail.com</a>
+          <CopyEmail />
+        </div>
+        <div className="footer-bottom">
+          <a className="footer-brand" href="#top" aria-label="Back to top">
+            <Monogram />
+            <span>
+              ALWAYS A WORK IN PROGRESS.
+              <br />© 2026 AJINKYA GOKULE
+            </span>
+          </a>
+          <div className="social-links">
+            {socialLinks
+              .filter((link) =>
+                ["GitHub", "LinkedIn", "Devpost", "Resume"].includes(
+                  link.label,
+                ),
+              )
+              .map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.label}
+                  <Arrow diagonal />
+                </a>
+              ))}
+          </div>
+          <a href="#top" className="back-top">
+            BACK TO TOP ↑
           </a>
         </div>
-      </Container>
-    </footer>
+      </footer>
+    </>
   );
 }

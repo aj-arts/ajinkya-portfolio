@@ -10,13 +10,15 @@ export type Experience = {
   date: string;
   location: string;
   description: string;
+  highlights?: string[];
+  current?: boolean;
 };
 
 export type Project = {
   name: string;
-  href: string;
-  image: string;
-  alt: string;
+  href?: string;
+  image?: string;
+  alt?: string;
   description: string;
   tags: string[];
   year: string;
@@ -43,66 +45,97 @@ export const socialLinks: SocialLink[] = [
   },
   { label: "Email", href: "mailto:ajinkyagokule@gmail.com" },
   { label: "GitHub", href: "https://github.com/aj-arts", external: true },
-  { label: "LinkedIn", href: "https://linkedin.com/in/ajinkyagokule", external: true },
-  { label: "Devpost", href: "https://devpost.com/ajinkyagokule", external: true },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/ajinkyagokule",
+    external: true,
+  },
+  {
+    label: "Devpost",
+    href: "https://devpost.com/ajinkyagokule",
+    external: true,
+  },
 ];
 
 export const experiences: Experience[] = [
   {
-    role: "Cybersecurity Intern",
+    role: "Product Manager / Software Engineer Intern",
     company: "Microsoft, Cloud + AI",
-    date: "Jun 2026 — Present",
+    date: "Jun – Sep 2026",
     location: "Redmond, WA",
     description:
-      "Working at the intersection of AI and cloud security — benchmarking the safety of frontier AI coding agents, building internal AI tooling for security teams, and hardening production cloud infrastructure.",
+      "Turned an executive request into a shipped planning dashboard through eight stakeholder interviews, requirements, success metrics, and a roadmap. Built an AI agent that turns incident history into runbooks, cutting authoring from days to hours. It won Best Project for AI Innovation among 38 interns, and a second Microsoft organization adopted the framework.",
+    highlights: [
+      "Led six people to 3rd place out of 200 teams in the Global Intern Hackathon with a benchmark of ten frontier AI models.",
+      "Drove 109 security fixes across 57 repositories, verifying fixes beyond ticket closure. Helped build detections for unpinned dependencies across roughly 3,000 pipelines.",
+      "Shipped a capacity-planning tool in one week, cut access-related questions by 70% through better onboarding, and contributed a merged fix to Windows Subsystem for Linux.",
+    ],
   },
   {
-    role: "Multi-Agent Systems Developer",
+    role: "Software Engineer / Product Lead",
     company: "BeavsBuild, Oregon State University",
-    date: "May 2025 — Present",
+    date: "May 2025 – Present",
+    current: true,
     location: "Corvallis, OR",
     description:
-      "Leading the AWS team building a multi-agent deep research system for automated patent analysis. Integrating the emerging agent stack end-to-end — Strands SDK, AWS AgentCore, MCP tools, and the A2A protocol — while driving the roadmap and cost / latency / security tradeoffs.",
+      "Lead product and engineering for a multi-agent system that researches patent prior art. Own the roadmap and architecture across Strands SDK, AWS AgentCore, A2A, and MCP, working through the tradeoffs between cost, latency, security, and report quality.",
   },
   {
-    role: "Software & Research Intern",
+    role: "Software and Research Intern",
     company: "HP, Engineering Modelling & Analysis Group",
-    date: "Feb — Sep 2025",
+    date: "Feb – Sep 2025",
     location: "Corvallis, OR",
     description:
-      "Led development of Physics-Informed Neural Networks modelling fluid flow and heat transfer inside microchips — approximating 3D Navier–Stokes equations for semiconductor cooling, with velocity predictions within ±5% of the analytical solution.",
+      "Built physics-informed neural networks in PyTorch to model fluid flow and heat transfer inside microchips. Embedded 3D Navier–Stokes and heat equations in the loss, matching analytical profiles within ±5%.",
   },
   {
-    role: "AI Backend Engineer Intern",
+    role: "Backend Software Engineer Intern",
     company: "College of Business, Oregon State University",
-    date: "Apr — Jun 2024",
+    date: "Apr – Jun 2024",
     location: "Corvallis, OR",
     description:
-      "Built an interactive RAG chatbot with a team of six for 500+ OSU business freshmen a year. LlamaIndex retrieval, deployed on AWS with a professor-facing backend for custom document uploads.",
+      "Co-built an advising chatbot with a six-person team for 500+ business freshmen each year. Designed LlamaIndex retrieval around the college’s course catalog and advising documents, then deployed it on AWS with an upload portal professors could use to update its knowledge.",
+  },
+  {
+    role: "Academic Learning Assistant",
+    company: "University Housing and Dining, OSU",
+    date: "Sep 2024 – Present",
+    current: true,
+    location: "Corvallis, OR",
+    description:
+      "Support 300+ residents with study strategy, time management, and campus resources through one-to-one check-ins. Design and run two academic workshops each term, drawing 50+ attendees each.",
   },
   {
     role: "AI Security Research Assistant",
     company: "Secure AI Systems Lab (SAIL), OSU",
-    date: "Dec 2023 — Sep 2025",
+    date: "Dec 2023 – Sep 2025",
     location: "Corvallis, OR",
     description:
-      "Researched adversarial robustness of Implicit Neural Representation and NFT-based image classifiers — assessing PGD attacks and novel defenses across MNIST, CIFAR-10, and CIFAR-100.",
+      "Researched the adversarial robustness of implicit neural representation image classifiers. Evaluated PGD attacks and novel defenses across MNIST, CIFAR-10, and CIFAR-100.",
+  },
+  {
+    role: "Resident Assistant",
+    company: "University Housing and Dining, OSU",
+    date: "Sep 2023 – Jun 2024",
+    location: "Corvallis, OR",
+    description:
+      "Supported a community of 35 residents through conflict resolution, wellbeing check-ins, and connections to campus resources. Organized four community events per term with 20+ attendees each.",
   },
   {
     role: "Calculus Teaching Assistant",
     company: "College of Science, OSU",
-    date: "Jan 2023 — Apr 2024",
+    date: "Jan 2023 – Apr 2024",
     location: "Corvallis, OR",
     description:
-      "Tutored 500+ students peer-to-peer in calculus and discrete math; TAs cut the DFW rate from 33% to 7%. Best Teaching Assistant 2023.",
+      "Tutored 500+ students in calculus and discrete math through small-group problem solving. Contributed to a TA program that brought the D, F, or withdrawal rate from 33% to 7%. Named Best Teaching Assistant in 2023.",
   },
   {
-    role: "Research Assistant",
+    role: "Music Software Research Assistant",
     company: "SoundBendor Lab, OSU",
-    date: "Nov 2022 — Jun 2023",
+    date: "Nov 2022 – Jun 2023",
     location: "Corvallis, OR",
     description:
-      "Wrote 100 unit tests for the MusicAI NoteValue class and presented the research at the URSA Spring Symposium.",
+      "Contributed test-driven development to Dr. Donnelly’s MusicAI Python library and presented the work at OSU’s URSA Spring Symposium.",
   },
 ];
 
@@ -113,8 +146,8 @@ export const projects: Project[] = [
     image: "/images/trust-me-bro.png",
     alt: "Trust Me Bro AI agent security benchmark dashboard",
     description:
-      "Open-source benchmark testing how frontier AI coding agents resist hidden prompt-injection attacks — 10 models, 1,950 runs, 3 safety modes, on a custom agent runtime that isolates runs without containers. Every model executed hidden attacks; even the safest failed 18% of default-prompt runs. Won the Microsoft Hackathon.",
-    tags: ["just-bash", "AI SDK", "Convex", "Next.js"],
+      "An open-source prompt-injection benchmark: ten frontier models, 1,950 runs, and three safety modes in a custom isolated runtime. Every model executed an attack; the safest failed 18% of default-prompt runs. Third of 200 teams at the Microsoft Global Intern Hackathon.",
+    tags: ["just-bash", "PI SDK", "Convex", "Next.js", "OpenRouter"],
     year: "2026",
     winner: true,
   },
@@ -124,7 +157,7 @@ export const projects: Project[] = [
     image: "/images/openhealth.jpg",
     alt: "OpenHealth medical bill analysis platform",
     description:
-      "Medical-bill transparency platform that parses uploaded bills and flags likely overcharges. Built a sandboxed ReAct agent with bounded tool-calling and a multi-modal vision-to-JSON pipeline on Nemotron reasoning. Won the NVIDIA track at BeaverHacks Spring 2026.",
+      "Medical-bill analysis that extracts procedure codes and charges from PDFs or photos, then compares CPT prices across hospitals, insurers, and locations. Built with Nemotron and a sandboxed ReAct agent. NVIDIA track winner at BeaverHacks Spring 2026.",
     tags: ["Nemotron", "Convex", "Vercel AI SDK", "Agentic AI"],
     year: "2026",
     winner: true,
@@ -135,7 +168,7 @@ export const projects: Project[] = [
     image: "/images/patent-analyzer.png",
     alt: "OSU Patent Analyzer multi-agent research interface",
     description:
-      "Production multi-agent deep research system automating patent prior-art analysis — specialized agents orchestrated over A2A and Strands SDK, RAG on Bedrock Knowledge Bases, serverless on Lambda with agent runtimes on AgentCore.",
+      "A multi-agent system for patent prior-art research, using A2A orchestration, Strands SDK, retrieval on Bedrock Knowledge Bases, and AWS AgentCore, Lambda, and S3.",
     tags: ["Strands SDK", "AWS AgentCore", "A2A", "Bedrock"],
     year: "2026",
   },
@@ -146,30 +179,30 @@ export const projects: Project[] = [
       "https://d112y698adiu2z.cloudfront.net/photos/production/software_thumbnail_photos/003/364/368/datas/medium.png",
     alt: "CatchARide rideshare interface",
     description:
-      "Student rideshare platform matching drivers with spare seats to passengers on overlapping routes, with a custom algorithm on Google's Route Optimization API. Won the Entrepreneurial track at BeaverHacks Spring 2025.",
-    tags: ["Google Routes", "OAuth 2.0", "PostgreSQL"],
+      "A student rideshare prototype that matches overlapping routes and splits gas costs using a custom detour-cost algorithm on Google’s Route Optimization API. Won the Entrepreneurial Challenge at BeaverHacks Spring 2025.",
+    tags: ["Google Routes", "PostgreSQL", "Flask", "React"],
     year: "2025",
     winner: true,
   },
   {
     name: "RLoRA",
-    href: "https://tinyurl.com/rlorafullpaper",
+    href: "https://www.linkedin.com/in/ajinkyagokule/overlay/1754432382183/single-media-viewer?type=DOCUMENT&profileId=ACoAADApq5EBZUYWSzWuY7KaeCfBz6J-g3lGix8",
     image: "/images/rlora.png",
     alt: "RLoRA research paper title page",
     description:
-      "Co-authored a lightweight RL framework combining QLoRA and GRPO for small language models — 26% less GPU memory, 66% fewer training examples, and half the compute while matching or surpassing SOTA with 57% pass@1 on math-reasoning benchmarks.",
+      "A lightweight reasoning framework combining QLoRA and GRPO with LoftQ and rank-stabilized LoRA. Reached 57% pass@1 across math benchmarks using 26% less GPU memory, 66% fewer training examples, and half the compute of full-parameter RL.",
     tags: ["QLoRA", "GRPO", "vLLM", "PyTorch"],
     year: "2025",
   },
   {
-    name: "3D Sound Visual Aid",
+    name: "Jedi Vision",
     href: "https://github.com/Jedi-Vision/jedi-vision-nano-code",
     image: "/images/jedi-vision.png",
     alt: "Jedi-Vision visual aid prototype",
     description:
-      "AI visual aid for the visually impaired — YOLO and depth models for real-time object detection and spatial mapping, with 3D audio guidance routed through bone-conduction headphones. Built in partnership with NVIDIA.",
-    tags: ["YOLO", "Depth Estimation", "Spatial Audio"],
-    year: "2025",
+      "A wearable visual aid that turns nearby objects into spatial audio through bone-conduction headphones. Runs YOLOv11, ByteTrack, and stereo depth at roughly 30 FPS on Jetson Orin Nano, with ZeroMQ and C++ Steam Audio in 8 GB of RAM.",
+    tags: ["NVIDIA Jetson", "YOLOv11", "CUDA", "Steam Audio"],
+    year: "2026",
   },
   {
     name: "GetTheDamClass",
@@ -178,7 +211,7 @@ export const projects: Project[] = [
       "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/003/154/757/datas/medium.png",
     alt: "GetTheDamClass extension UI",
     description:
-      "Chrome extension with 37 active users notifying OSU students of class openings via a reverse-engineered registration API and real-time cron checks. Won BeaverHacks Fall 2024.",
+      "A Chrome extension used by 37 students to catch class openings. Checks a reverse-engineered registration API every minute and sends notifications through a Flask and MySQL backend. Best Overall at BeaverHacks Fall 2024.",
     tags: ["React", "Docker", "MySQL", "Chrome API"],
     year: "2024",
     winner: true,
@@ -190,7 +223,7 @@ export const projects: Project[] = [
       "https://d112y698adiu2z.cloudfront.net/photos/production/software_thumbnail_photos/002/908/196/datas/medium.png",
     alt: "Backcast antique radio interface",
     description:
-      "A 24/7 retro radio show with AI-generated music and a jockey discussing each day's historical events, streamed through custom-modified antique radios and a Three.js web interface. Won Hack Through Time Spring 2024.",
+      "A 24/7 retro radio station pairing sourced songs with AI-written historical DJ commentary. Streams through an ESP32 inside a $10 thrift-store radio and a Three.js interface. Second place at BeaverHacks Spring 2024.",
     tags: ["Flask", "Three.js", "AWS EC2", "ESP32"],
     year: "2024",
     winner: true,
@@ -202,8 +235,8 @@ export const projects: Project[] = [
       "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/636/414/datas/medium.jpeg",
     alt: "Focii focus extension dashboard",
     description:
-      "ML-powered Chrome extension using word embeddings to block distracting sites — 75% classification-error reduction via Nelder–Mead optimisation. Won Hack Education Fall 2023.",
-    tags: ["Transformers", "PyTorch", "Chrome API"],
+      "A focus extension that compares website content with study topics through sentence embeddings and cosine similarity. Tuning the classifier’s weights and threshold with Nelder–Mead reduced classification error by 75%. Won Hack Education Fall 2023.",
+    tags: ["Transformers", "SciPy", "PyTorch", "Chrome API"],
     year: "2023",
     winner: true,
   },
@@ -214,7 +247,7 @@ export const projects: Project[] = [
       "https://d112y698adiu2z.cloudfront.net/photos/production/software_thumbnail_photos/002/486/510/datas/medium.jpeg",
     alt: "shortsGenerator command line",
     description:
-      "CLI that automates short-form video by synthesizing Reddit content through OpenAI, collapsing days of editing into seconds. Won BeaverHacks Spring 2023.",
+      "A command-line tool that turns Reddit or GPT-written stories into narrated, captioned MP4s with background footage. Second place at BeaverHacks Spring 2023.",
     tags: ["OpenAI", "Python", "Bash"],
     year: "2023",
     winner: true,
@@ -225,8 +258,8 @@ export const projects: Project[] = [
     image: "/images/campus-companion.png",
     alt: "Campus Companion mobile app",
     description:
-      "Full-stack mobile app on React Native and FastAPI with a real-time web-scraping microservice. Led an eight-person team through Agile sprints.",
-    tags: ["React Native", "FastAPI", "NoSQL"],
+      "Led an eight-person team building a campus app for dining menus, clubs, and study spots. React Native frontend, Flask on EC2, BeautifulSoup scraping, and JWT authentication, with API design and delivery organized through Agile sprints.",
+    tags: ["React Native", "Flask", "AWS EC2", "BeautifulSoup"],
     year: "2024",
   },
   {
@@ -235,11 +268,35 @@ export const projects: Project[] = [
     image: "/images/jos-os.png",
     alt: "JOS operating system console",
     description:
-      "32-bit x86 OS built from scratch: bootloader, paging kernel, syscalls, preemptive scheduling, IPC. Booted on QEMU with GDB debugging.",
+      "A 32-bit x86 operating system with a bootloader, virtual memory, ELF loading, fork, system calls, preemptive round-robin scheduling, traps, and permission-checked IPC. Booted and debugged with QEMU and GDB.",
     tags: ["C", "x86 Assembly", "QEMU"],
     year: "2024",
   },
+  {
+    name: "Agentic Résumé Pipeline",
+    href: "https://github.com/aj-arts/ajinkya-resume",
+    description:
+      "An agent-assisted LaTeX workflow for tailoring résumés to jobs. GitHub Actions compiles and publishes PDFs to a rolling release, while agent rules and PDF checks keep applications to one page and catch awkward wrapping.",
+    tags: ["LaTeX", "GitHub Actions", "AI Agents", "CI/CD"],
+    year: "2025",
+  },
+  {
+    name: "GuessTheBeaver",
+    description:
+      "A Spyfall-inspired browser game built over a hackathon weekend. Flask keeps up to 20 players in sync, with Jinja templates and vanilla JavaScript, deployed on Replit for BeaverHacks Winter 2023.",
+    tags: ["Flask", "Jinja", "JavaScript", "Replit"],
+    year: "2023",
+  },
+  {
+    name: "Macroeconomic Interactive Graph",
+    description:
+      "An interactive Desmos model connecting money supply to GDP through linked linear and composite functions. Sliders let students explore the relationships; adopted in a course serving 200+ students each term.",
+    tags: ["Desmos", "Demoscript", "Economics"],
+    year: "2022",
+  },
 ];
+
+export const projectPeriod = `${Math.min(...projects.map((project) => Number(project.year)))}–${Math.max(...projects.map((project) => Number(project.year)))}`;
 
 export const skillGroups: SkillGroup[] = [
   {
@@ -267,6 +324,8 @@ export const skillGroups: SkillGroup[] = [
       "LlamaIndex",
       "RAG",
       "YOLO",
+      "OpenCV",
+      "PINNs",
     ],
   },
   {
@@ -275,6 +334,7 @@ export const skillGroups: SkillGroup[] = [
       "AWS Bedrock",
       "AgentCore",
       "Lambda",
+      "S3",
       "Strands SDK",
       "MCP",
       "A2A",
@@ -286,19 +346,34 @@ export const skillGroups: SkillGroup[] = [
     title: "Frameworks & Tools",
     skills: [
       "React / Next.js",
+      "React Native",
+      "Flask",
       "FastAPI",
       "Convex",
       "PostgreSQL",
       "Docker",
       "GitHub Actions",
+    ],
+  },
+  {
+    title: "Systems & Hardware",
+    skills: [
+      "NVIDIA Jetson",
+      "CUDA",
+      "ZeroMQ",
+      "Steam Audio",
+      "ESP32",
       "QEMU",
       "GDB",
     ],
   },
 ];
 
-export const aboutPersonal = [
-  "Songwriting and DJing.",
-  "Snowboarding (carving, not posing).",
-  "Dancing — badly, but joyfully.",
+export const recognition = [
+  "7× hackathon winner",
+  "Best Teaching Assistant · 2023",
+  "2× URSA Engage award",
+  "7× Dean’s List",
+  "Drucilla Shepard Smith Award · 4.0 GPA",
+  "Honors College Differential Scholarship",
 ];
